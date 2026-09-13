@@ -1,0 +1,26 @@
+# --- Datasets / third-party models (obtain under their own licenses) ---
+BEAT2/
+dataset/
+smplx_model/
+
+# --- Runtime artifacts (created by training / evaluation) ---
+checkpoints/
+logs/
+results/
+
+# --- Model weights and cached arrays ---
+**/*.pt
+**/*.npz
+**/*.npy
+
+# --- Python ---
+__pycache__/
+**/*.pyc
+*.egg-info/
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+
+# NOTE: the project page's videos under project_page/videos/ are tracked
+# intentionally — do not add a blanket *.mp4 rule here.
