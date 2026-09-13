@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RTSMotion</title>
+<meta name="description" content="RTSMotion: a real-time, transcript-free speech-driven motion synthesis method for CG avatar-mediated communication.">
+
+<link rel="icon" href="data:,">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="project_page/css/style.css">
+</head>
+<body>
+
+<div class="topnav">
+  <div class="wrap">
+    <div class="brand">RTS<span>Motion</span></div>
+    <nav>
+      <a href="#abstract">Abstract</a>
+      <a href="#demo">Demo</a>
+      <a href="#credits">Credits</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero wrap">
+  <span class="venue">ICASSP 2027 &middot; under review</span>
+  <h1>RTSMotion: a Real-Time Speech-driven Motion Synthesis Method<br>for CG Avatar-mediated Communication</h1>
+  <p class="authors">Keisuke Kameyama, Sei Ueno, Akinobu Lee<br>
+    <span class="affil">Nagoya Institute of Technology, Japan</span></p>
+
+  <div class="btn-row">
+    <a class="btn primary" href="#" onclick="return false;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      <span>Paper (PDF)</span>
+    </a>
+    <a class="btn" href="https://github.com/kmym24/RTSMotion" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.5c0 4.98 3.23 9.2 7.71 10.69.56.1.77-.24.77-.54 0-.27-.01-1.16-.02-2.11-3.14.68-3.8-1.34-3.8-1.34-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.5-.28-5.13-1.25-5.13-5.57 0-1.23.44-2.24 1.16-3.03-.12-.28-.5-1.42.11-2.96 0 0 .95-.3 3.11 1.16a10.8 10.8 0 0 1 5.66 0c2.16-1.46 3.11-1.16 3.11-1.16.61 1.54.23 2.68.11 2.96.72.79 1.16 1.8 1.16 3.03 0 4.33-2.64 5.28-5.15 5.56.4.35.76 1.04.76 2.1 0 1.52-.01 2.74-.01 3.11 0 .3.2.65.78.54A11.02 11.02 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5z"/></svg>
+      <span>Code (GitHub)</span>
+    </a>
+    <a class="btn" href="#demo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      <span>Video Demonstration</span>
+    </a>
+  </div>
+  <p class="hero-note">The paper link is a placeholder and will be filled in upon publication.
+    The training and inference code will be added to the repository upon acceptance.</p>
+
+  <figure class="teaser">
+    <img src="project_page/img/overview.png" alt="Overview of RTSMotion: a CG avatar's motion is synthesized in real time from the operator's speech, without using transcripts.">
+    <figcaption>RTSMotion infers CG avatar motion in real time from an operator's speech alone &mdash; no transcript, no motion-capture device.</figcaption>
+  </figure>
+</header>
+
+<section id="abstract">
+  <div class="wrap">
+    <h2 class="section-title">Abstract</h2>
+    <div class="abstract-box">
+      <p>
+      Co-speech motion is essential for interactive avatar-mediated communication. Real-time
+      speech-driven motion synthesis allows speakers to present motion aligned with their speech
+      without requiring tracking devices. In this paper, we propose RTSMotion, a Real-Time
+      Speech-driven Motion synthesis method that requires no transcripts, avoiding the latency of
+      streaming ASR. All modules are designed to be causal, excluding future frames of the input
+      audio. We adopt Mamba for temporal modeling and Region Attention for coordination among body
+      regions. In our experiments, we train and evaluate the model on the BEAT2 dataset. RTSMotion
+      achieves the best scores on objective metrics while maintaining a synthesis latency of
+      approximately 160&nbsp;ms. In the subjective evaluation, RTSMotion achieved naturalness 
+      comparable to a streaming method while running at a lower Real Time Factor.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="demo">
+  <div class="wrap">
+    <h2 class="section-title">Video Demonstration</h2>
+    <p class="section-sub">Five clips from the paper's user study. Muted &amp; looping &mdash; unmute in-player for audio.</p>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-example="speaker3_0_4_4">Demo 1</button>
+      <button class="tab-btn" data-example="speaker13_0_1_1">Demo 2</button>
+      <button class="tab-btn" data-example="speaker24_0_103_103">Demo 3</button>
+      <button class="tab-btn" data-example="speaker23_0_65_65">Demo 4</button>
+      <button class="tab-btn" data-example="speaker30_0_87_87">Demo 5</button>
+    </div>
+
+    <div class="video-grid">
+      <div class="video-card gt">
+        <video data-video="gt" muted loop autoplay controls playsinline preload="metadata"><source src="project_page/videos/speaker3_0_4_4/gt.mp4" type="video/mp4"></video>
+        <div class="vlabel">Ground Truth</div>
+      </div>
+      <div class="video-card">
+        <video data-video="gesturelsm" muted loop autoplay controls playsinline preload="metadata"><source src="project_page/videos/speaker3_0_4_4/gesturelsm.mp4" type="video/mp4"></video>
+        <div class="vlabel">GestureLSM (offline)</div>
+      </div>
+      <div class="video-card">
+        <video data-video="miburi" muted loop autoplay controls playsinline preload="metadata"><source src="project_page/videos/speaker3_0_4_4/miburi.mp4" type="video/mp4"></video>
+        <div class="vlabel">Miburi (+ transcript)</div>
+      </div>
+      <div class="video-card proposed">
+        <video data-video="proposed" muted loop autoplay controls playsinline preload="metadata"><source src="project_page/videos/speaker3_0_4_4/proposed.mp4" type="video/mp4"></video>
+        <div class="vlabel">RTSMotion (ours)</div>
+      </div>
+    </div>
+    <p class="demo-note">These clips were presented in the user study with 45 participants reported in the paper. For GestureLSM and Miburi, we used the publicly available checkpoints.</p>
+  </div>
+</section>
+
+<section id="credits">
+  <div class="wrap">
+    <h2 class="section-title">Data, Models &amp; Licenses</h2>
+    <p class="section-sub">This page and the work it presents are for non-commercial academic research only.</p>
+
+    <div class="credits-box">
+      <dl>
+        <dt>BEAT2 <span class="lic">Apache-2.0</span></dt>
+        <dd>Every clip on this page is driven by speech from the BEAT2 dataset, and the
+          <em>Ground Truth</em> clips render its motion capture recordings.
+          Introduced by Liu et al., &ldquo;EMAGE: Towards Unified Holistic Co-Speech Gesture
+          Generation via Expressive Masked Audio Gesture Modeling&rdquo; CVPR 2024.
+          <a href="https://huggingface.co/datasets/H-Liu1997/BEAT2">Dataset</a> &middot;
+          <a href="https://www.apache.org/licenses/LICENSE-2.0">License</a></dd>
+
+        <dt>SMPL-X <span class="lic">Non-commercial</span></dt>
+        <dd>All motion on this page is rendered with the SMPL-X body model, 
+          which is licensed for non-commercial research use only.
+          Pavlakos et al., &ldquo;Expressive Body Capture: 3D Hands, Face, and Body from a
+          Single Image&rdquo; CVPR 2019.
+          <a href="https://smpl-x.is.tue.mpg.de/">Project page</a> &middot;
+          <a href="https://smpl-x.is.tue.mpg.de/modellicense.html">Model license</a></dd>
+
+        <dt>GestureLSM <span class="lic">MIT</span></dt>
+        <dd>Comparison clips were produced by running the publicly released
+          checkpoint in our own environment; the resulting motion was then rendered with the
+          same renderer used for every clip here.
+          Liu et al., &ldquo;GestureLSM: Latent Shortcut based Co-Speech Gesture Generation with
+          Spatial-Temporal Modeling&rdquo; ICCV 2025.
+          <a href="https://github.com/andypinxinliu/GestureLSM">Code</a></dd>
+
+        <dt>Miburi <span class="lic">CC BY-NC 4.0</span></dt>
+        <dd>Comparison clips were produced by running the publicly released
+          checkpoint in our own environment; the resulting motion was then rendered with the
+          same renderer used for every clip here.
+          Mughal et al., &ldquo;MIBURI: Towards Expressive Interactive Gesture Synthesis&rdquo;
+          CVPR 2026.
+          Miburi builds on Kyutai&rsquo;s Moshi, whose weights are released under CC BY 4.0, so
+          these clips are downstream of it.
+          <a href="https://github.com/m-hamza-mughal/miburi">Code</a> &middot;
+          <a href="https://creativecommons.org/licenses/by-nc/4.0/">License</a> &middot;
+          <a href="https://github.com/kyutai-labs/moshi">Moshi</a></dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Project page for RTSMotion, built from the ICASSP&nbsp;2027 submission.
+    The paper link will be filled in after review, and the
+    <a href="https://github.com/kmym24/RTSMotion" target="_blank" rel="noopener">code</a>
+    will be released upon acceptance.
+  </div>
+</footer>
+
+<script src="project_page/js/main.js"></script>
+</body>
+</html>
